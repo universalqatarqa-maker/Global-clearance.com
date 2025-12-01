@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Clearance | Visa & Government Paperwork Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base styles */
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #57a6c2;
+            --accent: #ff7e30;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+            --success: #28a745;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background-color: #ff6a0d;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav li {
+            margin-left: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 0;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            background-color: var(--primary);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Process Section */
+        .process {
+            background-color: #f0f8ff;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: 0;
+            width: calc(100% - 60px);
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2:after {
+            background-color: var(--accent);
+        }
+
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li i {
+            color: var(--accent);
+            margin-right: 10px;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav li {
+                margin: 0 10px 5px;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .step:not(:last-child):after {
+                display: none;
+            }
+            
+            .step {
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-passport"></i>
+                <h1>Global<span>Clearance</span></h1>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Global Visa & Government Paperwork Services</h1>
+            <p>We streamline complex visa applications, passport renewals, and government documentation processes for individuals and businesses worldwide. Save time and avoid costly mistakes with our expert assistance.</p>
+            <a href="#contact" class="btn btn-accent">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>We provide comprehensive assistance with all types of government documentation and visa processes</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Visa Applications</h3>
+                        <p>Tourist, business, student, and work visas for countries worldwide. We handle documentation, forms, and appointment scheduling.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Schengen Visa</li>
+                            <li><i class="fas fa-check"></i> US Visa (B1/B2, H1B, F1)</li>
+                            <li><i class="fas fa-check"></i> UK Visa</li>
+                            <li><i class="fas fa-check"></i> Australia & NZ Visa</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Passport Services</h3>
+                        <p>Fast-track passport applications, renewals, replacements, and name change processes with government authorities.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> New Passport Application</li>
+                            <li><i class="fas fa-check"></i> Passport Renewal</li>
+                            <li><i class="fas fa-check"></i> Lost/Stolen Passport</li>
+                            <li><i class="fas fa-check"></i> Passport Amendments</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Legal Documentation</h3>
+                        <p>Preparation and authentication of legal documents for international use, including apostille services and notarization.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Document Apostille</li>
+                            <li><i class="fas fa-check"></i> Power of Attorney</li>
+                            <li><i class="fas fa-check"></i> Birth/Marriage Certificates</li>
+                            <li><i class="fas fa-check"></i> Police Clearance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Our streamlined 4-step process makes government paperwork simple and stress-free</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We assess your specific needs and provide a detailed checklist of required documents and timelines.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Document Preparation</h3>
+                    <p>Our experts prepare, review, and organize all required forms and supporting documents.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Submission & Tracking</h3>
+                    <p>We submit your application and track its progress, handling any requests for additional information.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Completion</h3>
+                    <p>We notify you once your application is approved and assist with any follow-up requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our experts for all your visa and government paperwork needs</p>
+            </div>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>universalqatar.qa@gmail.com</p>
+                    <p>We respond within 24 hours</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>00974 31407622</p>
+                    <p>Sunday - Thursday, 9AM - 6PM</p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Visit Our Website</h3>
+                    <p>globalclearnce.online</p>
+                    <p>Complete service information online</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Start Your Paperwork Today</h2>
+            <p>Don't let complex government procedures delay your plans. Our experienced team will guide you through every step of the process, ensuring accuracy and saving you valuable time.</p>
+            <a href="#contact-form" class="btn btn-accent">Request Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Global Clearance</h3>
+                    <p>Professional visa and government paperwork services for individuals and businesses worldwide.</p>
+                    <p><i class="fas fa-globe"></i> globalclearnce.online</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#home">Home</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#services">Services</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#process">Process</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> universalqatar.qa@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> 00974 31407622</li>
+                        <li><i class="fas fa-globe"></i> globalclearnce.online</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Visa Applications</li>
+                        <li><i class="fas fa-check"></i> Passport Services</li>
+                        <li><i class="fas fa-check"></i> Legal Documentation</li>
+                        <li><i class="fas fa-check"></i> Government Clearances</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Global Clearance. All rights reserved. | globalclearnce.online</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Add a simple contact form
+        const ctaButton = document.querySelector('.cta .btn');
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a simple contact form modal
+            const formHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 2000;">
+                    <div style="background: white; padding: 30px; border-radius: 10px; max-width: 500px; width: 90%;">
+                        <h3 style="color: #1a5f7a; margin-bottom: 20px;">Request Free Consultation</h3>
+                        <form id="contact-form">
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Full Name *</label>
+                                <input type="text" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Email Address *</label>
+                                <input type="email" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Phone Number</label>
+                                <input type="tel" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Service Needed *</label>
+                                <select style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" required>
+                                    <option value="">Select a service</option>
+                                    <option>Visa Application</option>
+                                    <option>Passport Service</option>
+                                    <option>Legal Documentation</option>
+                                    <option>Other Government Paperwork</option>
+                                </select>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="display: block; margin-bottom: 5px;">Message</label>
+                                <textarea rows="4" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-top: 25px;">
+                                <button type="submit" class="btn" style="background: #ff7e30;">Submit Request</button>
+                                <button type="button" id="close-form" class="btn" style="background: #6c757d;">Cancel</button>
+                            </div>
+                            <p style="font-size: 0.85rem; margin-top: 15px; color: #666;">We'll contact you at universalqatar.qa@gmail.com or 00974 31407622</p>
+                        </form>
+                    </div>
+                </div>
+            `;
+            
+            // Add the form to the page
+            document.body.insertAdjacentHTML('beforeend', formHTML);
+            
+            // Handle form submission
+            document.getElementById('contact-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you! Your consultation request has been submitted. We will contact you within 24 hours at the email or phone number you provided.');
+                document.querySelector('div[style*="position: fixed"]').remove();
+            });
+            
+            // Handle form closing
+            document.getElementById('close-form').addEventListener('click', function() {
+                document.querySelector('div[style*="position: fixed"]').remove();
+            });
+        });
+        
+        // Make email clickable
+        document.addEventListener('DOMContentLoaded', function() {
+            const emailElements = document.querySelectorAll('p:contains("@")');
+            emailElements.forEach(el => {
+                if(el.textContent.includes('universalqatar.qa@gmail.com')) {
+                    el.innerHTML = el.innerHTML.replace('universalqatar.qa@gmail.com', 
+                        '<a href="mailto:universalqatar.qa@gmail.com" style="color: #ff7e30; text-decoration: underline;">universalqatar.qa@gmail.com</a>');
+                }
+            });
+            
+            // Make website URL clickable
+            const websiteElements = document.querySelectorAll('p:contains("globalclearnce.online")');
+            websiteElements.forEach(el => {
+                el.innerHTML = el.innerHTML.replace('globalclearnce.online', 
+                    '<a href="https://globalclearnce.online" target="_blank" style="color: #ff7e30; text-decoration: underline;">globalclearnce.online</a>');
+            });
+        });
+    </script>
+</body>
+</html>
